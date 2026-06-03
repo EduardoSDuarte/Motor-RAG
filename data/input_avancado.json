@@ -1,0 +1,136 @@
+{
+  "documents": [
+    {
+      "id": "doc01",
+      "title": "Art. 5° CF — Direitos e Garantias Fundamentais",
+      "source": "Constituição Federal",
+      "content": "todos são iguais perante a lei sem distinção de qualquer natureza garantindo-se aos brasileiros e aos estrangeiros residentes no país a inviolabilidade do direito à vida à liberdade à igualdade à segurança e à propriedade ninguém será obrigado a fazer ou deixar de fazer alguma coisa senão em virtude de lei ninguém será submetido a tortura nem a tratamento desumano ou degradante é livre a manifestação do pensamento sendo vedado o anonimato é inviolável a liberdade de consciência e de crença"
+    },
+    {
+      "id": "doc02",
+      "title": "Art. 121 CP — Homicídio Simples",
+      "source": "Código Penal",
+      "content": "matar alguém pena reclusão de seis a vinte anos homicídio qualificado se o homicídio é cometido mediante paga ou promessa de recompensa ou por outro motivo torpe por motivo fútil com emprego de veneno fogo explosivo asfixia tortura ou outro meio insidioso ou cruel pena reclusão de doze a trinta anos homicídio culposo na direção de veículo automotor"
+    },
+    {
+      "id": "doc03",
+      "title": "Art. 155 CP — Furto",
+      "source": "Código Penal",
+      "content": "subtrair para si ou para outrem coisa alheia móvel pena reclusão de um a quatro anos e multa furto qualificado com destruição ou rompimento de obstáculo à subtração da coisa com abuso de confiança ou mediante fraude escalada ou destreza furto famélico furto de uso furto privilegiado"
+    },
+    {
+      "id": "doc04",
+      "title": "Art. 157 CP — Roubo",
+      "source": "Código Penal",
+      "content": "subtrair coisa móvel alheia para si ou para outrem mediante grave ameaça ou violência a pessoa ou depois de havê-la por qualquer meio reduzido à impossibilidade de resistência pena reclusão de quatro a dez anos e multa roubo qualificado latrocínio se da violência resulta morte pena reclusão de vinte a trinta anos furto mediante violência grave ameaça concurso de agentes"
+    },
+    {
+      "id": "doc05",
+      "title": "Art. 23 CP — Legítima Defesa",
+      "source": "Código Penal",
+      "content": "não há crime quando o agente pratica o fato em estado de necessidade em legítima defesa em estrito cumprimento de dever legal ou no exercício regular de direito legítima defesa putativa excesso de legítima defesa legítima defesa de terceiro"
+    },
+    {
+      "id": "doc06",
+      "title": "Súmula 85 TST — Sobreaviso",
+      "source": "Jurisprudência TST",
+      "content": "a mera utilização de instrumentos telemáticos ou informatizados fornecidos pela empresa ao empregado por si só não caracteriza o regime de sobreaviso sobreaviso horas extras plantão disponibilidade trabalho remoto home office contrato de trabalho jornada"
+    },
+    {
+      "id": "doc07",
+      "title": "Art. 482 CLT — Justa Causa",
+      "source": "CLT",
+      "content": "constituem justa causa para rescisão do contrato de trabalho pelo empregador ato de improbidade incontinência de conduta mau procedimento desídia abandono de emprego embriaguez habitual violação de segredo da empresa ato de indisciplina insubordinação rescisão indireta justa causa"
+    },
+    {
+      "id": "doc08",
+      "title": "Art. 186 CC — Ato Ilícito",
+      "source": "Código Civil",
+      "content": "aquele que por ação ou omissão voluntária negligência ou imprudência violar direito e causar dano a outrem ainda que exclusivamente moral comete ato ilícito dano moral dano material responsabilidade civil nexo causal culpa dolo"
+    },
+    {
+      "id": "doc09",
+      "title": "Documento Isolado — Sem Termos Comuns",
+      "source": "Estatuto",
+      "content": "zoneamento urbano perímetro cadastral gleba edificação alvará licença urbanística planta baixa habite-se memorial descritivo"
+    },
+    {
+      "id": "doc10",
+      "title": "Art. 121 CP — Duplicado para Teste",
+      "source": "Código Penal",
+      "content": "matar alguém pena reclusão de seis a vinte anos homicídio qualificado homicídio culposo homicídio doloso dolo eventual culpa consciente resultado morte"
+    },
+    {
+      "id": "doc11",
+      "title": "Art. 319 CP — Prevaricação",
+      "source": "Código Penal",
+      "content": "retardar ou deixar de praticar indevidamente ato de ofício ou praticá-lo contra disposição expressa de lei para satisfazer interesse ou sentimento pessoal pena detenção de três meses a um ano e multa crime contra a administração pública funcionário público corrupção passiva ativa peculato"
+    },
+    {
+      "id": "doc12",
+      "title": "Súmula 331 TST — Terceirização",
+      "source": "Jurisprudência TST",
+      "content": "a contratação de trabalhadores por empresa interposta é ilegal formando-se o vínculo diretamente com o tomador dos serviços salvo no caso de trabalho temporário terceirização lícita ilícita vínculo empregatício tomador prestador responsabilidade subsidiária"
+    },
+    {
+      "id": "doc13",
+      "title": "Documento Vazio — Edge Case",
+      "source": "Teste",
+      "content": ""
+    },
+    {
+      "id": "doc14",
+      "title": "Art. 927 CC — Responsabilidade Civil",
+      "source": "Código Civil",
+      "content": "aquele que por ato ilícito causar dano a outrem fica obrigado a repará-lo responsabilidade civil objetiva subjetiva dano moral material estético nexo de causalidade culpa dolo negligência imprudência imperícia indenização reparação"
+    },
+    {
+      "id": "doc15",
+      "title": "Art. 5° CF — Repetido Parcial",
+      "source": "Constituição Federal",
+      "content": "habeas corpus habeas data mandado de segurança mandado de injunção ação popular direitos fundamentais liberdade igualdade vida segurança propriedade devido processo legal contraditório ampla defesa"
+    }
+  ],
+  "queries": [
+    {
+      "id": "q01",
+      "term": "furto",
+      "prefix": "fur"
+    },
+    {
+      "id": "q02",
+      "term": "homicídio",
+      "prefix": "homi"
+    },
+    {
+      "id": "q03",
+      "term": "dano",
+      "prefix": "dan"
+    },
+    {
+      "id": "q04",
+      "term": "rescisão",
+      "prefix": "resci"
+    },
+    {
+      "id": "q05",
+      "term": "zoneamento",
+      "prefix": "zone"
+    },
+    {
+      "id": "q06",
+      "term": "termo_inexistente_xyz",
+      "prefix": "xyz"
+    },
+    {
+      "id": "q07",
+      "term": "legítima",
+      "prefix": "legí"
+    },
+    {
+      "id": "q08",
+      "term": "responsabilidade",
+      "prefix": "respon"
+    }
+  ]
+}

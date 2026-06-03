@@ -1,0 +1,91 @@
+{
+  "documents": [
+    {
+      "id": "doc01",
+      "title": "Art. 5° CF — Direitos e Garantias Fundamentais",
+      "source": "Constituição Federal",
+      "content": "todos são iguais perante a lei sem distinção de qualquer natureza garantindo-se aos brasileiros e aos estrangeiros residentes no país a inviolabilidade do direito à vida à liberdade à igualdade à segurança e à propriedade ninguém será obrigado a fazer ou deixar de fazer alguma coisa senão em virtude de lei ninguém será submetido a tortura nem a tratamento desumano ou degradante é livre a manifestação do pensamento sendo vedado o anonimato é inviolável a liberdade de consciência e de crença é livre o exercício dos cultos religiosos e garantida a proteção aos locais de culto e a suas liturgias é inviolável o sigilo da correspondência e das comunicações telegráficas de dados e das comunicações telefônicas salvo por ordem judicial"
+    },
+    {
+      "id": "doc02",
+      "title": "Art. 121 CP — Homicídio Simples",
+      "source": "Código Penal",
+      "content": "matar alguém pena reclusão de seis a vinte anos homicídio qualificado se o homicídio é cometido mediante paga ou promessa de recompensa ou por outro motivo torpe por motivo fútil com emprego de veneno fogo explosivo asfixia tortura ou outro meio insidioso ou cruel ou de que possa resultar perigo comum à traição de emboscada ou mediante dissimulação ou outro recurso que dificulte ou torne impossível a defesa do ofendido para assegurar a execução a ocultação a impunidade ou vantagem de outro crime pena reclusão de doze a trinta anos"
+    },
+    {
+      "id": "doc03",
+      "title": "Art. 155 CP — Furto",
+      "source": "Código Penal",
+      "content": "subtrair para si ou para outrem coisa alheia móvel pena reclusão de um a quatro anos e multa furto qualificado com destruição ou rompimento de obstáculo à subtração da coisa com abuso de confiança ou mediante fraude escalada ou destreza com emprego de chave falsa com concurso de duas ou mais pessoas a pena é de reclusão de dois a oito anos e multa se o criminoso é primário e é de pequeno valor a coisa furtada o juiz pode substituir a pena de reclusão pela de detenção diminuí-la de um a dois terços ou aplicar somente a pena de multa furto famélico"
+    },
+    {
+      "id": "doc04",
+      "title": "Art. 482 CLT — Justa Causa",
+      "source": "CLT",
+      "content": "constituem justa causa para rescisão do contrato de trabalho pelo empregador ato de improbidade incontinência de conduta ou mau procedimento negociação habitual por conta própria ou alheia sem permissão do empregador e quando constituir ato de concorrência à empresa para a qual trabalha ou for prejudicial ao serviço condenação criminal do empregado passada em julgado caso não tenha havido suspensão da execução da pena desídia no desempenho das respectivas funções embriaguez habitual ou em serviço violação de segredo da empresa ato de indisciplina ou de insubordinação abandono de emprego ato lesivo da honra ou da boa fama praticado no serviço contra qualquer pessoa ou ofensas físicas nas mesmas condições salvo em caso de legítima defesa própria ou de outrem prática constante de jogos de azar"
+    },
+    {
+      "id": "doc05",
+      "title": "Art. 186 CC — Ato Ilícito",
+      "source": "Código Civil",
+      "content": "aquele que por ação ou omissão voluntária negligência ou imprudência violar direito e causar dano a outrem ainda que exclusivamente moral comete ato ilícito também comete ato ilícito o titular de um direito que ao exercê-lo excede manifestamente os limites impostos pelo seu fim econômico ou social pela boa-fé ou pelos bons costumes aquele que causar dano a outrem fica obrigado a repará-lo"
+    },
+    {
+      "id": "doc06",
+      "title": "Art. 23 CP — Legítima Defesa e Excludentes",
+      "source": "Código Penal",
+      "content": "não há crime quando o agente pratica o fato em estado de necessidade em legítima defesa em estrito cumprimento de dever legal ou no exercício regular de direito entende-se em legítima defesa quem usando moderadamente dos meios necessários repele injusta agressão atual ou iminente a direito seu ou de outrem considera-se em estado de necessidade quem pratica o fato para salvar de perigo atual que não provocou por sua vontade nem podia de outro modo evitar direito próprio ou alheio cujo sacrifício nas circunstâncias não era razoável exigir-se"
+    },
+    {
+      "id": "doc07",
+      "title": "Art. 7° CF — Direitos dos Trabalhadores",
+      "source": "Constituição Federal",
+      "content": "são direitos dos trabalhadores urbanos e rurais além de outros que visem à melhoria de sua condição social relação de emprego protegida contra despedida arbitrária ou sem justa causa nos termos de lei complementar que preverá indenização compensatória seguro-desemprego em caso de desemprego involuntário fundo de garantia do tempo de serviço salário mínimo fixado em lei nacionalmente unificado capaz de atender às suas necessidades vitais básicas e às de sua família piso salarial proporcional à extensão e à complexidade do trabalho irredutibilidade do salário décimo terceiro salário remuneração do serviço extraordinário superior no mínimo em cinquenta por cento à do normal"
+    },
+    {
+      "id": "doc08",
+      "title": "Art. 213 CP — Estupro",
+      "source": "Código Penal",
+      "content": "constranger alguém mediante violência ou grave ameaça a ter conjunção carnal ou a praticar ou permitir que com ele se pratique outro ato libidinoso pena reclusão de seis a dez anos se da conduta resulta lesão corporal de natureza grave ou se a vítima é menor de dezoito ou maior de catorze anos pena reclusão de oito a doze anos se da conduta resulta morte pena reclusão de doze a trinta anos estupro de vulnerável constranger menor de catorze anos a ter conjunção carnal ou a praticar ou permitir que com ele se pratique outro ato libidinoso"
+    },
+    {
+      "id": "doc09",
+      "title": "Art. 927 CC — Obrigação de Indenizar",
+      "source": "Código Civil",
+      "content": "aquele que por ato ilícito causar dano a outrem fica obrigado a repará-lo haverá obrigação de reparar o dano independentemente de culpa nos casos especificados em lei ou quando a atividade normalmente desenvolvida pelo autor do dano implicar por sua natureza risco para os direitos de outrem responsabilidade civil objetiva responsabilidade subjetiva culpa dolo negligência imprudência imperícia dano material dano moral dano estético nexo de causalidade"
+    },
+    {
+      "id": "doc10",
+      "title": "Art. 477 CLT — Rescisão do Contrato",
+      "source": "CLT",
+      "content": "é assegurado a todo empregado não existindo prazo estipulado para a terminação do respectivo contrato e não havendo ele dado motivo para cessação das relações de trabalho o direto de haver do empregador uma indenização paga na base da maior remuneração que tenha percebido na mesma empresa rescisão indireta despedida arbitrária aviso prévio proporcional homologação da rescisão verbas rescisórias saldo de salário férias proporcionais décimo terceiro proporcional multa do fundo de garantia do tempo de serviço"
+    }
+  ],
+  "queries": [
+    {
+      "id": "q01",
+      "term": "furto",
+      "prefix": "fur"
+    },
+    {
+      "id": "q02",
+      "term": "legítima defesa",
+      "prefix": "legí"
+    },
+    {
+      "id": "q03",
+      "term": "rescisão",
+      "prefix": "resci"
+    },
+    {
+      "id": "q04",
+      "term": "dano",
+      "prefix": "dan"
+    },
+    {
+      "id": "q05",
+      "term": "homicídio",
+      "prefix": "homi"
+    }
+  ]
+}
