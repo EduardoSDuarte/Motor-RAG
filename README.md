@@ -9,45 +9,46 @@
 
 | Nome | Responsabilidade | GitHub |
 |---|---|---|
-| [Nome da Parceira] | RF01 (Hash Index) · RF04 (HeapSort) · CLI · Gerador de dados | @parceira |
-| Eduardo | RF02 (Trie) · RF03 (Splay Tree) · Docs · README | @eduardo |
+| Monique | RF01 (Hash Index) · RF04 (HeapSort) · CLI · Gerador de dados | [@Moniquebelliny](https://github.com/Moniquefrancielly) |
+| Eduardo | RF02 (Trie) · RF03 (Splay Tree) · Docs · README | [@EduardoSDuarte](https://github.com/EduardoSDuarte) |
 
 ---
 
 ## Descrição do Projeto
 
-Este projeto implementa o núcleo algorítmico de um **Motor RAG (Retrieval-Augmented Generation) Local** — um sistema de busca e recuperação de documentos que funciona completamente offline, sem acesso à internet.
+Este projeto implementa o núcleo algorítmico de um **Motor RAG (Retrieval-Augmented Generation) Local** — um sistema de busca e recuperação de documentos jurídicos que funciona completamente offline, sem acesso à internet.
 
-O sistema é composto por quatro estruturas de dados implementadas manualmente:
+A base documental simula artigos da Constituição Federal, Código Penal, Código Civil, CLT e jurisprudências. O sistema é composto por quatro estruturas de dados implementadas manualmente:
 
 | RF | Estrutura | Função |
 |---|---|---|
-| RF01 | **Tabela Hash** (Índice Invertido) | Mapeia palavras → IDs de documentos |
+| RF01 | **Tabela Hash** (Índice Invertido) | Mapeia palavras → IDs de documentos em O(1) |
 | RF02 | **Árvore Trie** (DFS) | Autocompletar baseado no vocabulário |
 | RF03 | **Árvore Splay** | Cache dos documentos mais acessados |
-| RF04 | **HeapSort** | Ordenação por relevância, exibe Top-5 |
+| RF04 | **HeapSort** | Ordenação por relevância TF, exibe Top-5 |
 
 ---
 
 ## Estrutura do Repositório
 
 ```
-rag-motor/
+Motor-RAG/
 ├── src/
 │   ├── main.py          # CLI principal — lê input.json, grava output.json
 │   ├── trie.py          # RF02: Árvore Trie com DFS para autocompletar
 │   ├── splay_tree.py    # RF03: Splay Tree para cache de metadados
-│   ├── hash_index.py    # RF01: Tabela Hash / Índice Invertido (parceira)
-│   ├── heap_sort.py     # RF04: HeapSort + TF score (parceira)
-│   └── tests.py         # Testes unitários (RF02 + RF03)
+│   ├── hash_index.py    # RF01: Tabela Hash / Índice Invertido
+│   ├── heap_sort.py     # RF04: HeapSort + TF score
+│   └── tests.py         # Testes unitários
 ├── data/
-│   ├── input_basico.json       # 5 docs, casos simples
-│   ├── input_avancado.json     # 10 docs, edge cases
-│   ├── input_estresse.json     # 1000 docs, gerado automaticamente
+│   ├── input_basico.json       # 10 docs, casos simples
+│   ├── input_avancado.json     # 15 docs, edge cases
+│   ├── input_estresse.json     # 10.000 docs, gerado automaticamente
 │   └── generate_data.py        # Gerador dos três níveis de input
 ├── docs/
 │   └── documentacao_tecnica.md # Justificativas de complexidade
-├── run.sh                       # Script de execução padrão
+├── run.sh                       # Script de execução (Linux/Mac)
+├── run.bat                      # Script de execução (Windows)
 └── README.md
 ```
 
@@ -64,34 +65,36 @@ rag-motor/
 
 ### Usando o script padrão (recomendado)
 
+**Linux/Mac:**
 ```bash
-# Tornar executável (primeira vez)
 chmod +x run.sh
-
-# Executar com input básico
-./run.sh basico
-
-# Executar com input avançado
-./run.sh avancado
-
-# Executar com input de estresse
-./run.sh estresse
+bash run.sh
 ```
+
+**Windows:**
+```bat
+.\run.bat
+```
+
+O script executa automaticamente:
+1. Geração do arquivo de estresse (`input_estresse.json`)
+2. Processamento dos 3 cenários (básico, avançado, estresse)
+3. Geração dos arquivos de saída em `data/`
 
 ### Execução manual
 
 ```bash
 # Input básico
-python src/main.py --input data/input_basico.json --output data/output.json
+python src/main.py --input data/input_basico.json --output data/output_basico.json
 
 # Input avançado
-python src/main.py --input data/input_avancado.json --output data/output.json
+python src/main.py --input data/input_avancado.json --output data/output_avancado.json
 
 # Input de estresse
-python src/main.py --input data/input_estresse.json --output data/output.json
+python src/main.py --input data/input_estresse.json --output data/output_estresse.json
 ```
 
-### Gerar arquivo de estresse
+### Gerar arquivo de estresse manualmente
 
 ```bash
 python data/generate_data.py
@@ -113,22 +116,17 @@ python src/tests.py
 {
   "documents": [
     {
-      "id": 0,
-      "title": "Título do Documento",
-      "content": "Conteúdo textual do documento..."
+      "id": "doc01",
+      "title": "Art. 5° CF — Direitos e Garantias Fundamentais",
+      "source": "Constituição Federal",
+      "content": "todos são iguais perante a lei..."
     }
   ],
   "queries": [
     {
-      "id": 1,
-      "query": "termos de busca",
-      "top_k": 5
-    }
-  ],
-  "autocomplete_tests": [
-    {
-      "prefix": "ma",
-      "max_results": 5
+      "id": "q01",
+      "term": "furto",
+      "prefix": "fur"
     }
   ]
 }
@@ -138,39 +136,37 @@ python src/tests.py
 
 ```json
 {
-  "metadata": {
-    "total_documents": 5,
-    "vocabulary_size": 312
+  "meta": {
+    "total_documents": 10,
+    "unique_terms_indexed": 428,
+    "trie_vocabulary_size": 433,
+    "processing_time_seconds": 0.01
   },
-  "search_results": [
+  "results": [
     {
-      "query_id": 1,
-      "query": "machine learning",
-      "top_k": 5,
-      "results": [
+      "query_id": "q01",
+      "term": "furto",
+      "prefix": "fur",
+      "autocomplete": [
+        {"word": "furto", "doc_ids": ["doc03"]}
+      ],
+      "top5_documentos": [
         {
-          "doc_id": 0,
-          "title": "Introduction to Machine Learning",
-          "score": 2,
-          "snippet": "primeiros 200 caracteres do documento..."
+          "rank": 1,
+          "doc_id": "doc03",
+          "title": "Art. 155 CP — Furto",
+          "source": "Código Penal",
+          "score": 0.052631
         }
-      ]
+      ],
+      "splay_root": {
+        "doc_id_int": 123456,
+        "title": "Art. 155 CP — Furto",
+        "access_count": 1
+      }
     }
   ],
-  "autocomplete_results": [
-    {
-      "prefix": "ma",
-      "suggestions": ["machine", "mathematics", "matrix"]
-    }
-  ],
-  "cache_state": [
-    {
-      "doc_id": 0,
-      "access_count": 3,
-      "title": "Introduction to Machine Learning",
-      "score": 2
-    }
-  ]
+  "cache_estado_final": []
 }
 ```
 
@@ -180,12 +176,12 @@ python src/tests.py
 
 | Estrutura | Operação | Complexidade |
 |---|---|---|
+| **Hash Index** | insert / search | O(1) amortizado |
 | **Trie** | insert / search | O(m) — m = tamanho da palavra |
-| **Trie** | autocomplete | O(m + k) — k = resultados |
+| **Trie** | autocomplete (DFS) | O(m + k) — k = resultados |
 | **Splay Tree** | access / search | O(log n) amortizado |
 | **Splay Tree** | get_recent | O(n) |
-| **Hash Index** | insert / search | O(1) amortizado |
-| **HeapSort** | ordenação Top-K | O(n log n) |
+| **HeapSort** | ordenação Top-5 | O(n log n) |
 
 Para justificativas detalhadas, consulte [`docs/documentacao_tecnica.md`](docs/documentacao_tecnica.md).
 
@@ -197,13 +193,15 @@ Para justificativas detalhadas, consulte [`docs/documentacao_tecnica.md`](docs/d
 - ✅ Todas as estruturas implementadas manualmente do zero
 - ✅ Sistema funciona via linha de comando (CLI)
 - ✅ Lê `input.json` e grava `output.json` deterministicamente
-- ✅ Três níveis de input: básico, avançado e estresse
+- ✅ Três níveis de input: básico (10 docs), avançado (15 docs), estresse (10.000 docs)
+- ✅ Geração automatizada dos dados de teste via script
 
 ---
 
-## Como Contribuir (Para a Equipe)
+## Resultados do Teste de Estresse
 
-1. Faça commits frequentes com mensagens descritivas
-2. Nunca faça commit diretamente na `main` — use branches (`feature/rf02-trie`)
-3. Cada membro deve ter commits significativos de código-fonte
-4. Antes de fazer merge, rode `python src/tests.py` e confirme que todos passam
+| Cenário | Documentos | Termos Indexados | Tempo |
+|---|---|---|---|
+| Básico | 10 | 428 | 0.01s |
+| Avançado | 15 | 297 | 0.01s |
+| Estresse | 10.000 | 31.719 | ~11s |
