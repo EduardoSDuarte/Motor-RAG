@@ -6,7 +6,7 @@ Meta: 10.000 documentos simulados com vocabulário jurídico de ~50.000 palavras
 import json
 import random
 import uuid
-import os      
+import os
 
 # ── vocabulário jurídico base ──────────────────────────────────────────────────
 
@@ -75,27 +75,29 @@ def gerar_palavra_sintetica(prefixo: str, numero: int) -> str:
     return f"{prefixo}{sufixo}{numero}"
 
 
-def gerar_conteudo(doc_index: int, palavras_unicas: list) -> str:
+def gerar_conteudo(doc_index: int, palavras_unicas: list, n_docs: int) -> str:
     """
     Gera conteúdo textual para um documento.
-    Mistura termos jurídicos reais com palavras sintéticas únicas
-    para garantir as 50k palavras únicas no corpus total.
+    Distribui as palavras únicas de forma que todas apareçam no corpus.
+    Cada documento recebe uma fatia exclusiva do vocabulário sintético.
     """
     # termos jurídicos reais para este documento
     n_reais = random.randint(15, 30)
     termos_reais = random.choices(TERMOS_JURIDICOS, k=n_reais)
 
-    # palavras sintéticas únicas deste documento
-    n_sinteticas = random.randint(3, 7)
-    inicio = (doc_index * n_sinteticas) % len(palavras_unicas)
-    termos_sinteticos = palavras_unicas[inicio: inicio + n_sinteticas]
+    # distribui palavras_unicas em fatias pelos documentos
+    # garante cobertura total do vocabulário
+    fatia_size = max(5, len(palavras_unicas) // n_docs)
+    inicio = (doc_index * fatia_size) % len(palavras_unicas)
+    fim = min(inicio + fatia_size, len(palavras_unicas))
+    termos_sinteticos = palavras_unicas[inicio:fim]
 
     todos = termos_reais + termos_sinteticos
     random.shuffle(todos)
     return " ".join(todos)
 
 
-def gerar_documento(doc_index: int, palavras_unicas: list) -> dict:
+def gerar_documento(doc_index: int, palavras_unicas: list, n_docs: int = 10000) -> dict:
     prefixo = random.choice(PREFIXOS_TITULO)
     numero = random.randint(1, 9999)
     fonte = random.choice(FONTES)
@@ -103,7 +105,7 @@ def gerar_documento(doc_index: int, palavras_unicas: list) -> dict:
         "id": f"doc{doc_index:05d}",
         "title": f"{prefixo} {numero} — {fonte}",
         "source": fonte,
-        "content": gerar_conteudo(doc_index, palavras_unicas),
+        "content": gerar_conteudo(doc_index, palavras_unicas, n_docs),
     }
 
 
@@ -124,11 +126,15 @@ def main():
     print("Gerando vocabulário sintético único...")
 
     # gerar ~45k palavras sintéticas únicas (+ ~300 termos reais = ~50k total)
-    prefixos_base = ["jur", "leg", "proc", "penal", "civil", "trib", "const",
-                     "exec", "crim", "adm", "fis", "prev", "trab", "amb"]
+    prefixos_base = [
+        "jur", "leg", "proc", "penal", "civil", "trib", "const",
+        "exec", "crim", "adm", "fis", "prev", "trab", "amb",
+        "norm", "sent", "recur", "imput", "punit", "licil",
+        "delic", "indic", "peric", "juris", "forens",
+    ]
     palavras_unicas = []
     for prefixo in prefixos_base:
-        for i in range(3300):
+        for i in range(2200):
             palavras_unicas.append(gerar_palavra_sintetica(prefixo, i))
 
     random.shuffle(palavras_unicas)
@@ -136,7 +142,7 @@ def main():
 
     print("Gerando 10.000 documentos...")
     N_DOCS = 10_000
-    documentos = [gerar_documento(i, palavras_unicas) for i in range(1, N_DOCS + 1)]
+    documentos = [gerar_documento(i, palavras_unicas, N_DOCS) for i in range(1, N_DOCS + 1)]
 
     print("Gerando queries...")
     queries = gerar_queries(20)

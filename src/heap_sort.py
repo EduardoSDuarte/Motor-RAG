@@ -174,12 +174,16 @@ def heap_sort_by_relevance(
     results = []
     for rank, (doc_id, score) in enumerate(sorted_scores[:top_k], start=1):
         doc = doc_map.get(doc_id, {})
+        content = doc.get("content", "")
+        snippet = content[:150].strip() + "..." if len(content) > 150 else content
+        
         results.append({
             "rank": rank,
             "doc_id": doc_id,
             "title": doc.get("title", ""),
             "source": doc.get("source", ""),
             "score": round(score, 6),
+            "snippet": snippet,
         })
 
     return results
