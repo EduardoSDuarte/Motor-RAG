@@ -1,6 +1,5 @@
 
 class TrieNode:
-    """Nó individual da Trie."""
 
     def __init__(self):
        
@@ -15,7 +14,6 @@ class Trie:
         self._word_count = 0
 
     def insert(self, word: str, doc_id: int | None = None) -> None:
-        """Insere uma palavra na Trie e associa opcionalmente um doc_id."""
         word = word.lower().strip()
         if not word:
             return
@@ -34,10 +32,6 @@ class Trie:
             node.doc_ids.append(doc_id)
 
     def search(self, word: str) -> tuple[bool, list[int]]:
-        """
-        Verifica se uma palavra existe na Trie.
-        Retorna (encontrado, lista_de_doc_ids).
-        """
         word = word.lower().strip()
         node = self._find_node(word)
         if node is None or not node.is_end_of_word:
@@ -68,12 +62,9 @@ class Trie:
         return results
 
     def starts_with(self, prefix: str) -> bool:
-        """Verifica se alguma palavra começa com o prefixo."""
-        prefix = prefix.lower().strip()
         return self._find_node(prefix) is not None
 
     def _find_node(self, prefix: str) -> TrieNode | None:
-        """Caminha pela Trie até o nó correspondente ao prefixo."""
         node = self.root
         for char in prefix:
             if char not in node.children:
@@ -82,7 +73,6 @@ class Trie:
         return node
 
     def get_all_words(self) -> list[str]:
-        """Retorna todas as palavras armazenadas (DFS completo)."""
         return [word for word, _ in self.autocomplete("", max_results=self._word_count + 1)]
 
     @property
@@ -100,6 +90,5 @@ class Trie:
         return trie
 
 def _tokenize(text: str) -> list[str]:
-    """Tokeniza texto em palavras simples (sem pontuação)."""
     import re
     return re.findall(r"[a-záéíóúâêôãõüçà]+", text.lower())
