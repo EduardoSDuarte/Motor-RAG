@@ -1,5 +1,5 @@
 """
-generate_data.py — Gerador do input_estresse.json
+Gerador do input_estresse.json
 Meta: 10.000 documentos simulados com vocabulário jurídico de ~50.000 palavras únicas
 """
 
@@ -8,7 +8,7 @@ import random
 import uuid
 import os
 
-# ── vocabulário jurídico base ──────────────────────────────────────────────────
+# vocabulário jurídico base 
 
 TERMOS_JURIDICOS = [
     "furto", "roubo", "homicídio", "lesão", "dano", "culpa", "dolo", "pena",
@@ -81,12 +81,10 @@ def gerar_conteudo(doc_index: int, palavras_unicas: list, n_docs: int) -> str:
     Distribui as palavras únicas de forma que todas apareçam no corpus.
     Cada documento recebe uma fatia exclusiva do vocabulário sintético.
     """
-    # termos jurídicos reais para este documento
+
     n_reais = random.randint(15, 30)
     termos_reais = random.choices(TERMOS_JURIDICOS, k=n_reais)
 
-    # distribui palavras_unicas em fatias pelos documentos
-    # garante cobertura total do vocabulário
     fatia_size = max(5, len(palavras_unicas) // n_docs)
     inicio = (doc_index * fatia_size) % len(palavras_unicas)
     fim = min(inicio + fatia_size, len(palavras_unicas))
@@ -124,8 +122,7 @@ def gerar_queries(n: int = 20) -> list:
 
 def main():
     print("Gerando vocabulário sintético único...")
-
-    # gerar ~45k palavras sintéticas únicas (+ ~300 termos reais = ~50k total)
+    
     prefixos_base = [
         "jur", "leg", "proc", "penal", "civil", "trib", "const",
         "exec", "crim", "adm", "fis", "prev", "trab", "amb",
@@ -158,7 +155,6 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    # estatísticas
     todas_palavras = set()
     for doc in documentos:
         todas_palavras.update(doc["content"].split())

@@ -1,8 +1,5 @@
 """
-hash_index.py — Índice Invertido via Tabela Hash (RF01)
-
-Implementação do zero: array de buckets com encadeamento (chaining) para colisões.
-NÃO usa dict do Python como estrutura interna principal.
+Índice Invertido via Tabela Hash (RF01)
 
 Complexidade:
   - insert : O(1) amortizado
@@ -11,8 +8,7 @@ Complexidade:
 """
 
 
-# ── Nó da lista encadeada (encadeamento para colisões) ────────────────────────
-
+#  Nó da lista encadeada (encadeamento para colisões) 
 class _Node:
     """Nó interno da lista encadeada dentro de cada bucket."""
     __slots__ = ("key", "doc_ids", "next")
@@ -23,8 +19,6 @@ class _Node:
         self.next: "_Node | None" = None
 
 
-# ── Tabela Hash ────────────────────────────────────────────────────────────────
-
 class HashIndex:
     """
     Índice invertido: mapeia cada termo (str) para uma lista de IDs de documentos.
@@ -33,26 +27,21 @@ class HashIndex:
     Redimensiona automaticamente quando load_factor > 0.75.
     """
 
-    _INITIAL_CAPACITY = 1024  # potência de 2 para otimizar o módulo
+    _INITIAL_CAPACITY = 1024  # potência de 2 para otimizar 
 
     def __init__(self):
         self._capacity: int = self._INITIAL_CAPACITY
-        self._size: int = 0                        # número de chaves únicas
+        self._size: int = 0                        
         self._buckets: list[_Node | None] = [None] * self._capacity
-
-    # ── hash ──────────────────────────────────────────────────────────────────
 
     def _hash(self, key: str) -> int:
         """
-        Polynomial rolling hash (djb2 variant).
         Produz distribuição uniforme para strings de texto natural.
         """
         h = 5381
         for ch in key:
             h = (h * 33 ^ ord(ch)) & 0xFFFFFFFF
         return h % self._capacity
-
-    # ── resize ────────────────────────────────────────────────────────────────
 
     def _resize(self) -> None:
         """Dobra a capacidade e re-hasha todas as chaves existentes."""
@@ -86,8 +75,6 @@ class HashIndex:
         new_node.next = self._buckets[idx]
         self._buckets[idx] = new_node
         self._size += 1
-
-    # ── API pública ───────────────────────────────────────────────────────────
 
     def insert(self, term: str, doc_id: str) -> None:
         """
@@ -142,7 +129,6 @@ class HashIndex:
                 if len(word) >= 2:          # ignora tokens muito curtos
                     self.insert(word, doc_id)
 
-    # ── utilitários ───────────────────────────────────────────────────────────
 
     def __len__(self) -> int:
         """Número de termos únicos indexados."""

@@ -1,7 +1,7 @@
 """
-heap_sort.py — Ordenação por Relevância via HeapSort (RF04)
+Ordenação por Relevância via HeapSort (RF04)
 
-Implementação do zero: max-heap em array, sem uso de heapq.
+Max-heap em array, sem uso de heapq.
 Calcula score TF (Term Frequency) e retorna os Top 5 documentos.
 
 Complexidade:
@@ -10,8 +10,6 @@ Complexidade:
   - top_k          : O(N log K)
 """
 
-
-# ── Funções internas do Heap ──────────────────────────────────────────────────
 
 def _parent(i: int) -> int:
     return (i - 1) // 2
@@ -70,23 +68,19 @@ def heap_sort(arr: list) -> list:
     if not arr:
         return []
 
-    arr = list(arr)          # cópia para não mudar o original
+    arr = list(arr)          
     n = len(arr)
 
     _build_max_heap(arr)
 
     for end in range(n - 1, 0, -1):
-        # move o maior elemento (raiz) para o final
         arr[0], arr[end] = arr[end], arr[0]
-        # restaura a heap sem o último elemento
         _sift_down(arr, 0, end)
 
     # heap_sort produz ordem crescente — invertemos para decrescente
     arr.reverse()
     return arr
 
-
-# ── Score de Relevância ───────────────────────────────────────────────────────
 
 def compute_tf_score(term: str, doc: dict) -> float:
     """
@@ -133,8 +127,6 @@ def compute_scores(term: str, doc_ids: list[str], doc_map: dict) -> list[tuple]:
     return scores
 
 
-# ── API principal ─────────────────────────────────────────────────────────────
-
 def heap_sort_by_relevance(
     term: str,
     doc_ids: list[str],
@@ -161,16 +153,13 @@ def heap_sort_by_relevance(
     if not doc_ids:
         return []
 
-    # 1. calcula scores
     scores = compute_scores(term, doc_ids, doc_map)
 
     if not scores:
         return []
 
-    # 2. ordena por HeapSort decrescente
     sorted_scores = heap_sort(scores)
 
-    # 3. monta resultado com metadados (top_k)
     results = []
     for rank, (doc_id, score) in enumerate(sorted_scores[:top_k], start=1):
         doc = doc_map.get(doc_id, {})
